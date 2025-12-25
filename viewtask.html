@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="css/viewtask.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="title">
+      <div class="arrow">
+        <button>
+          <svg
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 20.67C14.81 20.67 14.62 20.6 14.47 20.45L7.95003 13.93C6.89003 12.87 6.89003 11.13 7.95003 10.07L14.47 3.55002C14.76 3.26002 15.24 3.26002 15.53 3.55002C15.82 3.84002 15.82 4.32002 15.53 4.61002L9.01003 11.13C8.53003 11.61 8.53003 12.39 9.01003 12.87L15.53 19.39C15.82 19.68 15.82 20.16 15.53 20.45C15.38 20.59 15.19 20.67 15 20.67Z"
+              fill="#000"
+              fill-opacity="0.87"
+            />
+          </svg>
+        </button>
+      </div>
+      <h1 class="tasklist">TaskList</h1>
+    </div>
+    <div class="container"></div>
+    <div class="popup-overlay"></div>
+    <div class="popup-box">
+      <h2>Add Task</h2>
+      <form>
+        <input type="text" placeholder="Enter TaskName" id="task-title-input" />
+        <input
+          type="text"
+          placeholder="Enter TaskLevel"
+          id="task-level-input"
+        />
+        <input
+          type="date"
+          placeholder="Enter the Taskdate "
+          id="task-date-input"
+        />
+        <textarea
+          placeholder="Description"
+          id="task-description-input"
+        ></textarea>
+        <button id="add-task">ADD</button>
+        <button id="cancel-popup">Cancel</button>
+      </form>
+    </div>
+    <!-- EDIT TASK MODAL -->
+    <div id="edit-modal" class="modal" hidden>
+      <div class="modal-box">
+        <form id="edit-form">
+          <h3>Edit Task</h3>
+
+          <label>Title</label>
+          <input id="edit-title" type="text" required />
+
+          <label>Level</label>
+          <input id="edit-level" type="text" />
+
+          <label>Date</label>
+          <input id="edit-date" type="date" />
+
+          <label>Description</label>
+          <textarea id="edit-desc" rows="4"></textarea>
+
+          <div class="modal-actions">
+            <button type="submit" id="edit-save">Save</button>
+            <button type="button" id="edit-cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/language.js"></script>
+    <script src="js/color.js"></script>
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/viewtask.js"></script>
+  </body>
+</html>

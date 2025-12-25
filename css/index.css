@@ -1,0 +1,67 @@
+body,html{
+    background:linear-gradient(135deg,#cce7ff,#e5e7eb) ;
+    min-height: 100vh;
+    height: auto;
+    width:100%;
+    max-width: 100;
+}
+.container{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.firstline h1{
+    color:#1e3a8a;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.6em;
+    margin-bottom:20px;
+}
+.firstline p{
+    color:#708090;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    color:#1e3a8a;
+}
+.title h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.4em;
+}
+.title h3{
+    color: #708090;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+}
+.start-btn{
+    background:linear-gradient(135deg,#3b82f6,#6366f1) ;
+    color:white;
+    margin-top: 24px;
+    padding:14px 28px;
+    border:none;
+    border-radius: 30px;
+    font-size:20px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(59,130,246,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.start-btn:hover {
+    background: linear-gradient(135deg,#6366f1,#8b5cf6);
+    transform:scale(1.05);
+    box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+}
+.lastline{
+    color:#5c5c5c;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-size: 1.1em;
+   margin-top:22px;
+
+}

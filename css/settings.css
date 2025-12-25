@@ -1,0 +1,217 @@
+:root {
+  --app-color: linear-gradient(
+    135deg,
+    #cce7ff,
+    #e5e7eb
+  ); /* default lavender color */
+}
+body,
+html {
+  background-color: var(--app-color);
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  max-width: 100;
+}
+.container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.settingone {
+  position: relative;
+  width: 100%;
+  padding: 16px 0;
+  border: none;
+  background: none;
+}
+.settingone svg {
+  position: absolute;
+  left: 20px; /* stays fixed at left */
+  top: 150.5%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  fill: #000; /* lavender/dark purple */
+  cursor: pointer;
+}
+#setting-heading h1 {
+  text-align: center; /* centers "Settings" */
+  font-family: "Poppins", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 23px;
+}
+.second {
+  font-size: 28px;
+  color: #64748b;
+  margin-top: 8px;
+  position: relative;
+  left: 15%; /* move it relative to screen width */
+  transform: translateX(-50%) translateX(-15px); /* centers then nudges left */
+}
+
+.langtwo,
+.two {
+  border: none;
+  background: none;
+}
+
+.one {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 40px;
+}
+.settings {
+  width: 460px;
+  margin: 0 auto;
+}
+.third {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20.6px;
+}
+.four {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+}
+.five {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+}
+.six {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+}
+.seven {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+}
+.eight {
+  font-size: 28px;
+  color: #64748b;
+  margin-top: 12px;
+  position: relative;
+  left: 15%; /* move it relative to screen width */
+  transform: translateX(-50%) translateX(-15px); /* centers then nudges left */
+}
+.nine {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+.ten {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+}
+.eleven {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #22224b;
+  margin-top: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+}
+.language-overlay,
+.color-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.language-box,
+.color-box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.language-box h2,
+.color-box h2 {
+  margin-bottom: 10px;
+}
+
+.language-box select,
+.color-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.language-box button,
+.color-box button {
+  background: var(--app-color, #8d6cc6);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.language-box button:hover,
+.color-box button:hover {
+  background: #7a5bb5;
+}
+
+.language-box .langclose,
+.color-box .colorclose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}

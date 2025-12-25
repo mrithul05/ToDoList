@@ -1,0 +1,11 @@
+:root {
+  --app-color: linear-gradient(
+    135deg,
+    #cce7ff,
+    #e5e7eb
+  ); /* Default app color */
+}
+
+body {
+  background: var(--app-color);
+}

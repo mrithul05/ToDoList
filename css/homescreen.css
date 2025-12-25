@@ -1,0 +1,236 @@
+body,
+html {
+  background: linear-gradient(135deg, #cce7ff, #e5e7eb);
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  max-width: 100;
+}
+.main {
+  text-align: center;
+  margin-top: 40px;
+}
+.firstline {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.menu-icon::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-icon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85px;
+  height: 100%;
+  transition: 0.3s;
+  scrollbar-width: none;
+  overflow: hidden scroll;
+  background: transparent;
+  -ms-overflow-style: none;
+  padding: 20px 20px 20px 0;
+  backdrop-filter: blur(5px);
+  box-shadow: 8px 0px 9px 0px #00000014;
+}
+
+.menu-icon:hover {
+  width: 260px;
+}
+
+.menu-icon:hover li span:nth-child(2) {
+  display: block;
+}
+
+.menu-content li {
+  list-style: none;
+  border-radius: 0px 50px 50px 0;
+  transition: 0.3s;
+  margin-bottom: 20px;
+  padding-left: 3px;
+}
+
+.menu-content li:hover {
+  background: #00bcd4;
+}
+
+.menu-content li span:nth-child(2) {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: #8d6cc6;
+  display: flex;
+  align-items: center;
+  font-family: "Verdana", Geneva, Tahoma, sans-serif;
+}
+
+.material-symbols {
+  padding: 10px;
+  font-size: 25px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.firstline label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  margin-left: 650px;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 15px;
+}
+
+#profile-pic {
+  border: none;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 22px;
+  margin-bottom: 45px;
+}
+.firstline svg {
+  margin-right: 20px;
+}
+.secondine {
+  margin-top: 20px;
+  margin-left: 60px;
+}
+.lytacyd {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 27px;
+  font-weight: 400;
+  background: linear-gradient(to right, #0f172a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.camic {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 22px;
+  color: #64748b;
+  font-weight: 400;
+}
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+  margin-left: 25px;
+  padding-bottom: 20px;
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  border: 1px solid #c4b5fd;
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  width: 97px;
+  height: 67px;
+  color: #111827;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.addnav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c4b5fd;
+  background-color: #e0e7ff;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-btn i {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  color: #2563eb; /* Blue-600 */
+}
+.addnav-btn:hover {
+  transform: translateY(-3px);
+  color: #2563eb; /* Blue-600 */
+}
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.8s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+.popup-box {
+  background-color: #3b82f6;
+  width: 37%;
+  padding: 40px;
+  border-radius: 10px;
+  position: absolute;
+  top: 20%;
+  left: 27%;
+  z-index: 2;
+  display: none;
+}
+.popup-box input {
+  background: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+}
+.popup-box textarea {
+  background: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+}
+.popup-box input::placeholder {
+  color: black;
+}
+.popup-box textarea::placeholder {
+  color: black;
+}
+.popup-box button {
+  background-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+}
+.popup-box input:focus {
+  outline: none;
+}
+.popup-box textarea:focus {
+  outline: none;
+}

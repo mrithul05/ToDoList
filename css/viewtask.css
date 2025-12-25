@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #cce7ff, #e5e7eb);
+}
+.title {
+  background-color: transparent;
+  padding: 10px;
+}
+.tasklist {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: #c5b3ff;
+  font-size: 3em;
+  position: fixed;
+  left: 650px;
+}
+.container {
+  padding: 10px;
+  margin-top: 72px;
+}
+.task-container {
+  padding: 15px;
+  width: 15%;
+  background-color: #adebb3;
+  border-radius: 10px;
+  color: #424273;
+  margin: 50px;
+  display: inline-block;
+  vertical-align: top;
+}
+.task-container h2 {
+  color: #424273;
+}
+.task-container button {
+  background-color: lightcoral;
+  color: black;
+  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+}
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.8s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+.popup-box {
+  background-color: #3b82f6;
+  width: 37%;
+  padding: 40px;
+  border-radius: 10px;
+  position: absolute;
+  top: 20%;
+  left: 27%;
+  z-index: 2;
+  display: none;
+}
+.popup-box input {
+  background: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+}
+.popup-box textarea {
+  background: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+}
+.popup-box input::placeholder {
+  color: black;
+}
+.popup-box textarea::placeholder {
+  color: black;
+}
+.popup-box button {
+  background-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+}
+.popup-box input:focus {
+  outline: none;
+}
+.popup-box textarea:focus {
+  outline: none;
+}
+.add-task {
+  position: fixed;
+  left: 700px;
+  bottom: 20px;
+  border: 1px solid #c4b5fd;
+  background-color: #7fe5b2;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+/* modal styles */
+.modal[hidden] {
+  display: none;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+}
+.modal-box {
+  width: min(560px, 92vw);
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  font-family: "Poppins", sans-serif;
+}
+.modal-box label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e2ee;
+  border-radius: 8px;
+  margin-top: 6px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.modal-actions button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* quick task card look (optional adjust to your theme) */
+.task-container {
+  width: 300px;
+  background: linear-gradient(180deg, #8b5cf6, #a78bfa);
+  color: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  font-family: "Poppins", sans-serif;
+}
+.task-container h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.task-container h5 {
+  margin: 0 0 6px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+.task-container p {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+.task-container .actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+.task-container .actions button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.task-container .actions .edit-btn {
+  background: #fef3c7;
+  color: #382b8a;
+}
+.task-container .actions .delete-btn {
+  background: #ef4444;
+  color: #fff;
+}
+.arrow {
+  position: absolute;
+  left: 20px; /* stays fixed at left */
+  top: 4.8%;
+  transform: translateY(-50%);
+  width: 47px;
+  height: 47px;
+  fill: #6c63ff; /* lavender/dark purple */
+  cursor: pointer;
+}
+.arrow button {
+  border: none;
+  background: transparent;
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+.arrow button:hover {
+  background: none;
+  border: none;
+  cursor: default;
+}
