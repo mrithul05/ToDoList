@@ -22,8 +22,13 @@ body {
 ================================ */
 
 .main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
   padding: 20px;
   margin-left: 90px; /* space for sidebar on desktop */
+  margin-top: 60px;
 }
 
 /* ===============================
@@ -31,11 +36,11 @@ body {
 ================================ */
 
 .menu-icon {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  width: 85px;
-  height: 100vh;
+  width: 40px;
+  height: 40px;
   background: transparent;
   backdrop-filter: blur(6px);
   box-shadow: 8px 0 9px rgba(0, 0, 0, 0.08);
@@ -90,25 +95,32 @@ body {
 ================================ */
 
 .firstline {
+  position: relative;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  padding: 0 16px;
 }
 
 .firstline label {
-  font-size: 32px;
-  font-weight: 400;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 26px;
+  font-weight: 600;
   background: linear-gradient(to right, #3b82f6, #6366f1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 #profile-pic {
-  width: 80px;
-  height: 80px;
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  transform: translateX(-18px);
 }
 
 /* ===============================
@@ -116,10 +128,16 @@ body {
 ================================ */
 
 .secondine {
-  margin-top: 10px;
+  margin-top: 140px;
+  padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .lytacyd {
+  margin: 8px 0;
   font-size: 24px;
   font-weight: 400;
   background: linear-gradient(to right, #0f172a, #2563eb);
@@ -128,6 +146,7 @@ body {
 }
 
 .camic {
+  margin: 8px 0;
   font-size: 18px;
   color: #64748b;
 }
@@ -137,11 +156,16 @@ body {
 ================================ */
 
 .nav-container {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  margin-top: 40px;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  z-index: 100;
 }
 
 .nav-btn,
@@ -246,40 +270,74 @@ body {
 
   /* Full-width content */
   .main {
-    margin-left: 0;
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 120px; /* space for nav buttons */
   }
 
   /* Header */
   .firstline {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 64px;
   }
 
   .firstline label {
-    font-size: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
   }
 
   #profile-pic {
-    width: 70px;
-    height: 70px;
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: translateX(-14px);
+  }
+
+  .secondline {
+    margin-top: 40px;
+    padding: 0 16px;
+    text-align: center;
   }
 
   /* Text */
   .lytacyd {
     font-size: 20px;
+    margin-top: 10px;
   }
 
   .camic {
     font-size: 16px;
+    margin-top: 6px;
   }
 
   /* Navigation */
   .nav-container {
-    gap: 16px;
-    margin-top: 30px;
-    padding-bottom: 80px;
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    background: #e0e7ff;
+    border-radius: 18px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 2000;
   }
 
   .nav-btn {
