@@ -106,7 +106,7 @@ body {
 .firstline label {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-70%);
   font-size: 26px;
   font-weight: 600;
   background: linear-gradient(to right, #3b82f6, #6366f1);
@@ -116,8 +116,8 @@ body {
 
 #profile-pic {
   margin-left: auto;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: cover;
   transform: translateX(-18px);
