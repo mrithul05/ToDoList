@@ -293,7 +293,7 @@ body {
   .firstline label {
     position: absolute;
     left: 50%;
-    transform: translateX(-62%);
+    transform: translateX(-65%);
     font-size: 28px;
     font-weight: 500;
     margin: 0;
@@ -302,8 +302,8 @@ body {
 
   #profile-pic {
     margin-left: auto;
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
     object-fit: cover;
     border-radius: 50%;
     transform: translateX(-9px);
