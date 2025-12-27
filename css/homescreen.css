@@ -106,7 +106,7 @@ body {
 .firstline label {
   position: absolute;
   left: 50%;
-  transform: translateX(-70%);
+  transform: translateX(-50%);
   font-size: 26px;
   font-weight: 600;
   background: linear-gradient(to right, #3b82f6, #6366f1);
@@ -116,11 +116,11 @@ body {
 
 #profile-pic {
   margin-left: auto;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  transform: translateX(-18px);
+  transform: translateX(-10px);
 }
 
 /* ===============================
@@ -241,6 +241,7 @@ body {
   border-radius: 10px;
   border: none;
   margin-bottom: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .popup-box input:focus,
@@ -285,32 +286,34 @@ body {
     display: flex;
     align-items: center;
     padding: 0 16px;
-    height: 64px;
+    height: 56px;
+    transform: translateX(-2px);
   }
 
   .firstline label {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    font-size: 22px;
-    font-weight: 600;
+    transform: translateX(-60%);
+    font-size: 28px;
+    font-weight: 500;
     margin: 0;
     white-space: nowrap;
   }
 
   #profile-pic {
     margin-left: auto;
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     object-fit: cover;
     border-radius: 50%;
-    transform: translateX(-14px);
+    transform: translateX(-9px);
   }
 
   .secondline {
     margin-top: 40px;
     padding: 0 16px;
     text-align: center;
+    transform: translateX(-2px);
   }
 
   /* Text */
