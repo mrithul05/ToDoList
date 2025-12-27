@@ -293,7 +293,7 @@ body {
   .firstline label {
     position: absolute;
     left: 50%;
-    transform: translateX(-60%);
+    transform: translateX(-62%);
     font-size: 28px;
     font-weight: 500;
     margin: 0;
