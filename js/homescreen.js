@@ -12,6 +12,26 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 
+//---------------------------
+// MENUBUTTON TOGGLE SIDEBAR
+//---------------------------
+
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const sidebarOverlay = document.querySelector(".sidebar-overlay");
+
+menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    sidebarOverlay.classList.toggle("active");
+});
+
+sidebarOverlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    sidebarOverlay.classList.remove("active");
+});
+
+
+
 // ---------------------------
 // LOAD PROFILE IMAGE IN NAVBAR
 // ---------------------------

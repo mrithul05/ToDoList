@@ -35,59 +35,97 @@ body {
    SIDEBAR MENU (DESKTOP)
 ================================ */
 
-.menu-icon {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  backdrop-filter: blur(6px);
-  box-shadow: 8px 0 9px rgba(0, 0, 0, 0.08);
-  padding: 20px 10px;
-  overflow-y: auto;
-  transition: width 0.3s ease;
-  z-index: 100;
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
 }
 
-.menu-icon:hover {
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: transparent;
+  padding-top: 80px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+.sidebar:hover {
   width: 240px;
 }
 
-.menu-icon::-webkit-scrollbar {
-  display: none;
+.sidebar ul {
+  list-style: none;
+  padding: 80px 12px 20px;
+}
+
+.menu-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu-content li {
-  list-style: none;
-  margin-bottom: 18px;
-  border-radius: 0 40px 40px 0;
-  transition: background 0.3s;
+  margin: 6px 0;
+}
+
+.menu-content li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: linear-gradient(to right, #3b82f6, #6366f1);
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.menu-content li a svg {
+  height: 26px;
+  width: 26px;
+  fill: currentColor;
+  opacity: 0.9;
 }
 
 .menu-content li:hover {
-  background: #00bcd4;
+  background-color: #e0f2fe;
 }
 
-.menu-content li span:nth-child(2) {
-  display: none;
+.menu-content li a span {
+  line-height: 1;
 }
 
-.menu-icon:hover li span:nth-child(2) {
-  display: inline;
+.menu-content li a:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(4px);
 }
 
-.menu-content a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #8d6cc6;
-  padding: 8px 12px;
+.menu-content li a.active {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: #fff;
+}
+.sidebar:hover span {
+  opacity: 1;
 }
 
-.material-symbols {
-  font-size: 24px;
-  margin-right: 12px;
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  z-index: 900;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ===============================
@@ -95,15 +133,20 @@ body {
 ================================ */
 
 .firstline {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
+  background-color: transparent;
+  z-index: 1000;
 }
 
-.firstline label {
+.page-title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -116,12 +159,10 @@ body {
 }
 
 #profile-pic {
-  margin-left: auto;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  transform: translateX(-10px);
 }
 
 /* ===============================
@@ -261,13 +302,56 @@ body {
 }
 
 /* ===============================
+   DESKTOP RESPONSIVE
+================================ */
+
+@media (min-width: 769px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
+/* ===============================
    MOBILE RESPONSIVE
 ================================ */
 
 @media (max-width: 768px) {
   /* Remove sidebar on mobile */
-  .menu-icon {
-    display: none;
+
+  /* SIDEBAR */
+  .sidebar {
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    width: 260px;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  /*Menu Button*/
+  .menu-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-198%);
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-content li a {
+    padding: 14px 16px;
+    font-size: 14px;
   }
 
   /* Full-width content */
@@ -283,18 +367,18 @@ body {
   /* Header */
   .firstline {
     width: 100%;
-    position: absolute;
+    position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0 16px;
     height: 56px;
-    transform: translateX(-2px);
   }
 
-  .firstline label {
+  .page-title {
     position: absolute;
     left: 50%;
-    transform: translateX(-66%);
+    transform: translateX(-112%);
     font-size: 28px;
     font-weight: 500;
     margin: 0;
@@ -307,7 +391,7 @@ body {
     height: 46px;
     object-fit: cover;
     border-radius: 50%;
-    transform: translateX(-9px);
+    transform: translateX(-2px);
   }
 
   .secondline {
