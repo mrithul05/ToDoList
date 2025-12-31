@@ -72,7 +72,7 @@ body {
 .day {
   aspect-ratio: 1 / 1;
 }
-.day button {
+.day-button {
   aspect-ratio: 1 / 1;
   width: 100%;
   position: relative;
@@ -86,11 +86,13 @@ body {
   background: #f1f5f9;
   color: #1e3a8a;
   border: none;
+  transition: background-color 0.2s ease, transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
-.day button:hover {
+.day-button:hover {
   background: #dbeafe;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .day button:active {
@@ -113,6 +115,11 @@ body {
   border: 2px solid #2563eb;
 }
 
+.day-button::after {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform: scale(0);
+  opacity: 0;
+}
 .day-button.has-task::after {
   content: "";
   width: 6px;
@@ -123,6 +130,7 @@ body {
   bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 1;
 }
 
 /* Header Styles */
@@ -173,6 +181,8 @@ body {
   max-height: 80vh;
   overflow-y: auto;
   word-break: break-word;
+  transform: scale(0.9);
+  transition: transform 0.25s ease;
 }
 
 .close-modal {
@@ -235,7 +245,7 @@ MOBILE RESPONSIVE
     left: -10px;
   }
   .calendar {
-    gap: 4px;
+    gap: 6px;
   }
   /*PAGE*/
   .calendar-main {
@@ -247,8 +257,14 @@ MOBILE RESPONSIVE
     padding: 20px;
   }
   /* MONTH */
+  .month {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+  }
   .month h2 {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 8px;
   }
   /* CALENDAR HEADER ROW */
   .calendar-header-row {
@@ -266,9 +282,17 @@ MOBILE RESPONSIVE
   }
 
   .day button {
-    font-size: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+    border-radius: 10px;
   }
 
+  .day-button.has-task::after {
+    bottom: 4px;
+    width: 6px;
+    height: 6px;
+  }
   /* MODAL */
   .modal-content {
     padding: 20px;
