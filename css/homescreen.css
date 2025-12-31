@@ -341,7 +341,7 @@ body {
   .menu-btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%) translateX(-198%);
+    transform: translateY(-50%) translateX(-258%);
     min-width: 40px;
     min-height: 40px;
     display: flex;

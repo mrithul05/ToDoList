@@ -71,12 +71,13 @@ async function generateCalendar() {
 
       const dateKey = `${month}-${day}-${currentYear}`;
       const button = document.createElement("button");
+      button.classList.add("day-button");
       button.textContent = day;
 
       // Load stored task from Firestore
       loadTask(dateKey).then(storedTask => {
         if (storedTask) {
-          button.textContent = `${day}: ${storedTask}`;
+          button.classList.add("has-task");
         }
       });
 
@@ -105,6 +106,7 @@ const alertMessage = document.getElementById("alert-message");
 const confirmMessage = document.getElementById("confirm-message");
 
 const saveTaskBtn = document.getElementById("save-task-btn");
+const openDeleteBtn = document.getElementById("open-delete-btn");
 const confirmDeleteBtn = document.getElementById("confirm-delete-btn");
 const cancelDeleteBtn = document.getElementById("cancel-delete-btn");
 
@@ -116,13 +118,6 @@ const closeAlertBtn = document.getElementById("close-alert-btn");
 let currentTaskDate = null;
 let currentTaskButton = null;
 
-function openTaskModal(date, button) {
-  currentTaskDate = date;
-  currentTaskButton = button;
-  taskModalTitle.textContent = `Task for ${date}`;
-  taskInput.value = "";
-  taskModal.style.display = "block";
-}
 
 function openConfirmModal(date, button) {
   currentTaskDate = date;
@@ -150,33 +145,55 @@ cancelDeleteBtn.onclick = () => closeModal(confirmModal);
 // ----- SAVE TASK -----
 saveTaskBtn.onclick = async () => {
   const task = taskInput.value.trim();
-  if (task) {
-    await saveTask(currentTaskDate, task); // Firebase save
-    currentTaskButton.textContent = `${currentTaskDate.split("-")[1]}: ${task}`;
-    closeModal(taskModal);
+  if (!task) {
+    openAlertModal("Task cannot be empty");
+    return;
   }
+    await saveTask(currentTaskDate, task); // Firebase save
+    const dayNumber=currentTaskDate.split("-")[1];
+    currentTaskButton.textContent=dayNumber;
+    currentTaskButton.classList.add("has-task");
+    closeModal(taskModal);
 };
 
 
 // ----- DELETE TASK -----
+openDeleteBtn.onclick = () => {
+  closeModal(taskModal);
+  confirmModal.style.display = "block";
+};
+
+
 confirmDeleteBtn.onclick = async () => {
   await deleteTask(currentTaskDate); // Firebase delete
-  currentTaskButton.textContent = currentTaskDate.split("-")[1];
+  
+  const dayNumber=currentTaskDate.split("-")[1];
+  currentTaskButton.textContent=dayNumber;
+  currentTaskButton.classList.remove("has-task");
   closeModal(confirmModal);
   openAlertModal(`Task for ${currentTaskDate} deleted.`);
+};
+
+cancelDeleteBtn.onclick = () => {
+  closeModal(confirmModal);
+  taskModal.style.display = "block";
 };
 
 
 // ----- Add/Delete Dispatcher -----
 async function addTask(date, button) {
-  const existing = await loadTask(date);
-  if (existing) openConfirmModal(date, button);
-  else openTaskModal(date, button);
+  currentTaskDate = date;
+  currentTaskButton = button;
+  const existingTask = await loadTask(date);
+  taskModalTitle.textContent = `Task for ${date}`;
+  taskInput.value = existingTask || "";
+  openDeleteBtn.style.display = existingTask ? "inline-block" : "none";
+  taskModal.style.display = "block";
 }
 
 
 // back button
-document.querySelector(".arrow button").onclick = () => {
+document.querySelector(" .calendar-header  button").onclick = () => {
   window.location.href = document.referrer || "homescreen.html";
 };
 
