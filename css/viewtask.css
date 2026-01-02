@@ -7,29 +7,32 @@ body {
   background: linear-gradient(135deg, #cce7ff, #e5e7eb);
 }
 .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   background-color: transparent;
-  padding: 10px;
+  padding: 16px;
 }
 .tasklist {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   color: #c5b3ff;
-  font-size: 3em;
-  position: fixed;
-  left: 650px;
+  font-size: 2.2em;
 }
 .container {
   padding: 10px;
   margin-top: 72px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }
 .task-container {
-  padding: 15px;
-  width: 15%;
+  padding: 16px;
+  width: 100%;
   background-color: #adebb3;
   border-radius: 10px;
   color: #424273;
-  margin: 50px;
-  display: inline-block;
-  vertical-align: top;
+  margin: 0;
 }
 .task-container h2 {
   color: #424273;
@@ -58,14 +61,15 @@ body {
 }
 .popup-box {
   background-color: #3b82f6;
-  width: 37%;
-  padding: 40px;
+  width: min(92vw, 400px);
+  padding: 20px;
   border-radius: 10px;
   position: absolute;
   top: 20%;
-  left: 27%;
+  left: 50%;
   z-index: 2;
   display: none;
+  transform: translate(-50%);
 }
 .popup-box input {
   background: white;
@@ -110,14 +114,14 @@ body {
 }
 .add-task {
   position: fixed;
-  left: 700px;
+  right: 20px;
   bottom: 20px;
   border: 1px solid #c4b5fd;
   background-color: #7fe5b2;
   border-radius: 50%;
-  width: 72px;
-  height: 72px;
-  font-size: 14px;
+  width: 56px;
+  height: 56px;
+  font-size: 20px;
   color: #111827;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
@@ -218,7 +222,7 @@ body {
   position: absolute;
   left: 20px; /* stays fixed at left */
   top: 4.8%;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
   width: 47px;
   height: 47px;
   fill: #6c63ff; /* lavender/dark purple */
@@ -233,4 +237,29 @@ body {
   background: none;
   border: none;
   cursor: default;
+}
+
+@media (max-width: 600px) {
+  .tasklist {
+    font-size: 1.6em;
+  }
+
+  .container {
+    margin-top: 60px;
+    padding: 12px;
+  }
+
+  .task-container {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .task-container h2 {
+    font-size: 1.1rem;
+  }
+  .task-container p {
+    font-size: 0.9em;
+  }
+  .actions {
+    justify-content: space-between;
+  }
 }
